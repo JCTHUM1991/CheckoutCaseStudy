@@ -1,5 +1,5 @@
-const express = require("express");
-const fetch = require("node-fetch");
+const express = require("node_modules/express");
+const fetch = require("node_modules/node-fetch");
 const app = express();
 
 app.use(express.static("public"));
