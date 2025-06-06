@@ -7,39 +7,40 @@
   </head>
 
   <body>
-    <h1>🛒 Checkout Page</h1>
+    <main class="checkout-wrapper">
+      <header>
+        <h1>🛒 Checkout Page</h1>
+      </header>
 
-    <!-- Basket Summary -->
-    <section class="basket">
-      <h2>Basket Summary</h2>
-      <ul>
-        <li>🎸 <strong>Guitar</strong> – £16.35 × 1 = £16.35</li>
-        <li>🔊 <strong>Amp</strong> – £16.35 × 3 = £49.05</li>
-      </ul>
-      <p><strong>Total: £65.40</strong></p>
-    </section>
+      <!-- Basket Summary -->
+      <section class="basket">
+        <h2>Basket Summary</h2>
+        <ul>
+          <li>🎸 <strong>Guitar</strong> – SGD 16.35 × 1 = SGD 16.35</li>
+          <li>🔊 <strong>Amp</strong> – SGD 16.35 × 3 = SGD 49.05</li>
+        </ul>
+        <p class="total"><strong>Total: SGD 65.40</strong></p>
+      </section>
 
-    <!-- Toasts -->
-    <div id="successToast" class="toast success">
-      <span>The payment was successful</span>
-    </div>
+      <!-- Payment Form -->
+      <form class="payment-form">
+        <div class="flow-container-wrapper">
+          <div id="flow-container"></div>
+        </div>
+        <span id="error-message"></span>
+        <span id="successful-payment-message"></span>
+      </form>
 
-    <div id="failedToast" class="toast failed">
-      <span>The payment failed, try again</span>
-    </div>
-
-    <!-- Payment Form -->
-    <form>
-      <div class="container">
-        <div id="flow-container"></div>
+      <!-- Toasts -->
+      <div id="successToast" class="toast success">
+        <span>The payment was successful</span>
       </div>
-      <span id="error-message"></span>
-      <span id="successful-payment-message"></span>
-    </form>
+      <div id="failedToast" class="toast failed">
+        <span>The payment failed, try again</span>
+      </div>
+    </main>
 
-    <!-- Checkout.com SDK -->
     <script src="https://checkout-web-components.checkout.com/index.js"></script>
-    <!-- Your JS logic -->
     <script src="app.js"></script>
   </body>
 </html>

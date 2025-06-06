@@ -1,30 +1,45 @@
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Checkout Web Components: Flow Component</title>
-        <link rel="stylesheet" href="./style.css" />
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Web Components: Flow Component</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-    <body>
-        <div id="successToast" class="toast success">
-            <span>The payment was successful</span>
-        </div>
+  <body>
+    <h1>🛒 Checkout Page</h1>
 
-        <div id="failedToast" class="toast failed">
-            <span>The payment failed, try again</span>
-        </div>
+    <!-- Basket Summary -->
+    <section class="basket">
+      <h2>Basket Summary</h2>
+      <ul>
+        <li>🎸 <strong>Guitar</strong> – £16.35 × 1 = £16.35</li>
+        <li>🔊 <strong>Amp</strong> – £16.35 × 3 = £49.05</li>
+      </ul>
+      <p><strong>Total: £65.40</strong></p>
+    </section>
 
-        <form>
-            <div class="container">
-                <div id="flow-container"></div>
-            </div>
-            <span id="error-message"></span>
-            <span id="successful-payment-message"></span>
-        </form>
+    <!-- Toasts -->
+    <div id="successToast" class="toast success">
+      <span>The payment was successful</span>
+    </div>
 
-        <script src="https://checkout-web-components.checkout.com/index.js"></script>
+    <div id="failedToast" class="toast failed">
+      <span>The payment failed, try again</span>
+    </div>
 
-        <script src="app.js"></script>
-    </body>
+    <!-- Payment Form -->
+    <form>
+      <div class="container">
+        <div id="flow-container"></div>
+      </div>
+      <span id="error-message"></span>
+      <span id="successful-payment-message"></span>
+    </form>
+
+    <!-- Checkout.com SDK -->
+    <script src="https://checkout-web-components.checkout.com/index.js"></script>
+    <!-- Your JS logic -->
+    <script src="app.js"></script>
+  </body>
 </html>
