@@ -3,7 +3,7 @@
   // Insert your public key here
   const PUBLIC_KEY = "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy";
 
-  const response = await fetch("/create-payment-sessions", { method: "POST" }); // Order
+  const response = await fetch("https://checkoutcasestudy.onrender.com/create-payment-sessions", { method: "POST" }); // Order
   const paymentSession = await response.json();
 
   if (!response.ok) {
