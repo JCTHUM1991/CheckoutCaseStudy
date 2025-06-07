@@ -23,11 +23,11 @@
     onPaymentCompleted: (_component, paymentResponse) => {
       console.log("Create Payment with PaymentId: ", paymentResponse.id);
 	  console.log("Create Payment with paymentResponseStatus: ", paymentResponse.status);
-	  console.log("Create Payment with paymentResponse: ", paymentResponse);
+	  console.log("AA Create Payment with paymentResponse: ", paymentResponse);
 	  
 	  const paymentStatus = paymentResponse.status;
 	  
-	  if (paymentStatus === "Approved") {
+		if (paymentStatus === "Approved") {
 		console.log("Create Payment with paymentStatus: IN SUCCESS");
 		triggerToast("successToast");
 		}

@@ -26,6 +26,20 @@
 	  console.log("Create Payment with paymentResponse: ", paymentResponse);
 	  
 	  const paymentStatus = paymentResponse.status;
+	  
+		if (paymentStatus === "Approved") {
+		console.log("Create Payment with paymentStatus: IN SUCCESS");
+		triggerToast("successToast");
+		}
+
+		if (paymentStatus === "Declined") {
+		  triggerToast("failedToast");
+		}
+
+		if (paymentId) {
+		  console.log("Create Payment with PaymentId1: ", paymentId);
+		  console.log("Create Payment with Payload1: ", urlParams);
+		}
     },
     onChange: (component) => {
       console.log(
@@ -63,7 +77,7 @@ console.log("Query string: ", window.location.search);
 console.log("Create Payment with urlParams: ", urlParams);
 console.log("Create Payment with paymentStatus: ", paymentStatus);
 console.log("Create Payment with paymentId: ", paymentId);
-*/
+
 
 if (paymentStatus === "Approved") {
 	console.log("Create Payment with paymentStatus: IN SUCCESS");
@@ -78,3 +92,4 @@ if (paymentId) {
   console.log("Create Payment with PaymentId1: ", paymentId);
   console.log("Create Payment with Payload1: ", urlParams);
 }
+*/
