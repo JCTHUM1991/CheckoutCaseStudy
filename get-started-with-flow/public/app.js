@@ -39,7 +39,7 @@
 
 		if (paymentId) {
 		  console.log("Create Payment with PaymentId1: ", paymentId);
-		  console.log("Create Payment with Payload1: ", urlParams);
+		  
 		}
     },
     onChange: (component) => {

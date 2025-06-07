@@ -26,6 +26,7 @@
 	  console.log("AA Create Payment with paymentResponse: ", paymentResponse);
 	  
 	  const paymentStatus = paymentResponse.status;
+	  const paymentId = paymentResponse.id;
 	  
 		if (paymentStatus === "Approved") {
 		console.log("Create Payment with paymentStatus: IN SUCCESS");
