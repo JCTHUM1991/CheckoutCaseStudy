@@ -1,5 +1,6 @@
 /* global CheckoutWebComponents */
 
+// Show toast message
 function triggerToast(id) {
   const element = document.getElementById(id);
   if (!element) return;
@@ -13,17 +14,17 @@ function triggerToast(id) {
   }, 5000);
 }
 
-// Handle query params first
+// Parse query params
 const urlParams = new URLSearchParams(window.location.search);
 const paymentStatus = urlParams.get("status");
 const paymentId = urlParams.get("cko-payment-id");
 
-console.log("Current URL: ", window.location.href);
-console.log("Query string: ", window.location.search);
+console.log("Current URL:", window.location.href);
+console.log("Query string:", window.location.search);
 console.log("paymentStatus:", paymentStatus);
 console.log("paymentId:", paymentId);
 
-// ✅ Show toast and stop if it's a completed payment
+// ✅ Show success/failure toast if redirected back from payment result
 if (paymentStatus === "succeeded") {
   console.log("Payment successful");
   triggerToast("successToast");
@@ -31,7 +32,7 @@ if (paymentStatus === "succeeded") {
   console.log("Payment failed");
   triggerToast("failedToast");
 } else {
-  // 🔄 No payment result yet → Initialize payment form
+  // 🔄 No payment status → Render payment form
   (async () => {
     const PUBLIC_KEY = "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy";
 
@@ -57,16 +58,20 @@ if (paymentStatus === "succeeded") {
         console.log("Checkout component ready");
       },
       onPaymentCompleted: (_component, paymentResponse) => {
-        console.log("Payment completed with ID:", paymentResponse.id);
-        console.log("Payment response:", paymentResponse);
+        console.log("✅ Payment completed with ID:", paymentResponse.id);
+        console.log("✅ Payment response:", paymentResponse);
+
+        // 🚀 Redirect to show success toast
+        window.location.href = `https://jcthum1991.github.io/CheckoutCaseStudy/?status=succeeded&cko-payment-id=${paymentResponse.id}`;
       },
       onChange: (component) => {
-        console.log(
-          `onChange() -> isValid: "${component.isValid()}" for "${component.type}"`
-        );
+        console.log(`onChange() -> isValid: "${component.isValid()}" for "${component.type}"`);
       },
       onError: (component, error) => {
-        console.log("onError:", error, "Component:", component.type);
+        console.error("❌ onError:", error, "Component:", component.type);
+
+        // Optional: Redirect to failure page
+        window.location.href = `https://jcthum1991.github.io/CheckoutCaseStudy/?status=failed`;
       },
     });
 
@@ -74,6 +79,7 @@ if (paymentStatus === "succeeded") {
     flowComponent.mount(document.getElementById("flow-container"));
   })();
 }
+
 
 /* global CheckoutWebComponents */
 /*
