@@ -115,8 +115,8 @@ if (paymentStatusURL === "succeeded") {
 			console.error("Error get payment details", getpaymentdetails);
 			return;
 		}
-	})();
-	if (getpaymentdetails.status === "approved") {
+		
+		if (getpaymentdetails.status === "approved") {
 		console.log("Payment approved.");
 		triggerToast("successToast");
 		
@@ -124,6 +124,9 @@ if (paymentStatusURL === "succeeded") {
     console.log("Payment declined.");
     triggerToast("failedToast");
   }
+		
+	})();
+	
 }
 
 if (paymentStatusURL === "failed") {

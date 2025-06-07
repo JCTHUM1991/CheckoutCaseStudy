@@ -116,7 +116,14 @@ if (paymentStatusURL === "succeeded") {
 			return;
 		}
 	})();
-  triggerToast("successToast");
+	if (getpaymentdetails.status === "approved") {
+		console.log("Payment approved.");
+		triggerToast("successToast");
+		
+  } else {
+    console.log("Payment declined.");
+    triggerToast("failedToast");
+  }
 }
 
 if (paymentStatusURL === "failed") {
