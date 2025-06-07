@@ -37,6 +37,7 @@ app.post("/create-payment-sessions", async (_req, res) => {
           email: "jia.tsang@example.com",
           name: "Jia Tsang",
         },
+		/*
         shipping: {
           address: {
             address_line1: "123 High St.",
@@ -50,18 +51,24 @@ app.post("/create-payment-sessions", async (_req, res) => {
             country_code: "+44",
           },
         },
+		*/
         billing: {
           address: {
+			  /*
             address_line1: "123 High St.",
             address_line2: "Flat 456",
             city: "London",
             zip: "SW1A 1AA",
             country: "GB",
+			*/
+			"country": "NL"
           },
+		  /*
           phone: {
             number: "1234567890",
             country_code: "+44",
           },
+		  */
         },
         risk: {
           enabled: true,
