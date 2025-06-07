@@ -17,8 +17,7 @@
     environment: "sandbox",
     locale: "en-GB",
     paymentSession,
-	paymentMethods: ['card', 'ideal', 'googlepay'],
-	
+	translations,
     onReady: () => {
       console.log("onReady");
     },
