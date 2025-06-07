@@ -31,7 +31,7 @@ app.post("/create-payment-sessions", async (_req, res) => {
         description: "Payment for Iphone Casing",
         billing_descriptor: {
           name: "Jia Tsang",
-          city: "London",
+          city: "Euro",
         },
         customer: {
           email: "jia.tsang@example.com",
@@ -75,14 +75,14 @@ app.post("/create-payment-sessions", async (_req, res) => {
         },
 		
 		enabled_payment_methods: ["card","ideal","googlepay"],
-		/*
+		
 		"3ds": {
 			"enabled": true,
-			"attempt_n3d": false,
-			"challenge_indicator": "no_preference",
-			"exemption": "low_value",
-			"allow_upgrade": true
-			},*/
+			//"attempt_n3d": false,
+			//"challenge_indicator": "no_preference",
+			//"exemption": "low_value",
+			//"allow_upgrade": true
+			},
         success_url: "https://jcthum1991.github.io/CheckoutCaseStudy/?status=succeeded",
         failure_url: "https://jcthum1991.github.io/CheckoutCaseStudy/?status=failed",
         metadata: {},

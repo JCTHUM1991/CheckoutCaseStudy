@@ -31,7 +31,7 @@ app.post("/create-payment-sessions", async (_req, res) => {
         description: "Payment for Iphone Casing",
         billing_descriptor: {
           name: "Jia Tsang",
-          city: "London",
+          city: "Euro",
         },
         customer: {
           email: "jia.tsang@example.com",
@@ -136,9 +136,17 @@ app.post("/getPaymentDetails", async (req, res) => {
 	  console.log("data ",data.approved);
 	  console.log("data ",data);
 	  
+	  if (TransStatus === true) {
+      // ✅ Return only "approved" message
+      return res.status(200).json({ status: "approved" });
+    } else {
+      // ❌ Return declined or general failure
+      return res.status(200).json({ status: "declined" });
+    }
+	  
 	  //res.status(request.ok ? 200 : request.status).json(data);
 	  
-	  res.status(request.status).send(data);
+	  //res.status(request.status).send(data);
 	  
 	} catch (error) {
     console.error("Error fetching payment details:", error);

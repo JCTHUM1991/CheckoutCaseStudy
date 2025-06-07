@@ -93,8 +93,8 @@
       <section class="basket">
         <h2>Basket Summary</h2>
         <ul>
-          <li>🎸 <strong>Guitar</strong> – SGD 16.35 × 1 = SGD 16.35</li>
-          <li>🔊 <strong>Amp</strong> – SGD 16.35 × 3 = SGD 49.05</li>
+          <li><strong>Iphone Casing</strong> – SGD 16.35 × 1 = SGD 16.35</li>
+          <li><strong>Iphone Casing1</strong> – SGD 16.35 × 3 = SGD 49.05</li>
         </ul>
         <p class="total"><strong>Total: SGD 65.40</strong></p>
       </section>
