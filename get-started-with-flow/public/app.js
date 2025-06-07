@@ -17,7 +17,14 @@
     environment: "sandbox",
     locale: "en-GB",
     paymentSession,
-	translations,
+	componentOptions: {
+    card: {
+      data: {
+        cardholderName: 'Jia Tsang',
+      },
+    },
+  },
+	//translations,
     onReady: () => {
       console.log("onReady");
     },
