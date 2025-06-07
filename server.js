@@ -66,8 +66,8 @@ app.post("/create-payment-sessions", async (_req, res) => {
         risk: {
           enabled: true,
         },
-        success_url: "https://jcthum1991.github.io/CheckoutCaseStudy/?status=succeeded",
-        failure_url: "https://jcthum1991.github.io/CheckoutCaseStudy/?status=failed",
+        success_url: "https://checkoutcasestudy.onrender.com/?status=succeeded",
+        failure_url: " https://checkoutcasestudy.onrender.com/?status=failed",
         metadata: {},
         items: [
           {
@@ -92,5 +92,5 @@ app.post("/create-payment-sessions", async (_req, res) => {
 });
 
 app.listen(3000, () =>
-  console.log("Node server listening on port 3000: http://localhost:3000/")
+  console.log("Node server listening on port 3000:  https://checkoutcasestudy.onrender.com")
 );
