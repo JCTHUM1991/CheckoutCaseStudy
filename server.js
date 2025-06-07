@@ -132,9 +132,12 @@ app.post("/getPaymentDetails", async (req, res) => {
 		}
 	  );
 	  const data = await request.json();
+	  console.log("data ",data.approved);
 	  console.log("data ",data);
 	  
-	  res.status(request.ok ? 200 : request.status).json(data);
+	  //res.status(request.ok ? 200 : request.status).json(data);
+	  
+	  res.status(request.status).send(data);
 	  
 	} catch (error) {
     console.error("Error fetching payment details:", error);
