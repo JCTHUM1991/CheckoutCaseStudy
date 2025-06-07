@@ -63,8 +63,16 @@
   });
 
   const flowComponent = checkout.create("flow");
+  const idealComponent = checkout.create("ideal");
+
 
   flowComponent.mount(document.getElementById("flow-container"));
+  const idealElement = document.getElementById('ideal-container');
+
+	if (await idealComponent.isAvailable()) {
+	  idealComponent.mount(idealElement);
+	}
+  
 })();
 
 function triggerToast(id) {
