@@ -75,3 +75,92 @@ form {
     opacity: 0;
   }
 }
+
+/* Base Style */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #FFFFFD;
+  color: #323416;
+  margin: 0;
+  padding: 1em;
+}
+
+.checkout-wrapper {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+header h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.basket {
+  background: #8C9E6E;
+  padding: 1em;
+  border-radius: 10px;
+  color: #FFFFFD;
+}
+
+.basket ul {
+  list-style: none;
+  padding: 0;
+}
+
+.basket li {
+  margin: 0.5em 0;
+}
+
+.basket .total {
+  margin-top: 1em;
+  font-size: 1.2em;
+}
+
+.flow-container-wrapper {
+  background: #f4f4f4;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+/* Toasts */
+.toast {
+  display: none;
+  padding: 1em;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.toast.success {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.toast.failed {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .checkout-wrapper {
+    padding: 1em;
+  }
+
+  .basket h2, .basket li, .total {
+    font-size: 1em;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+}
