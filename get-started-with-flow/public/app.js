@@ -62,4 +62,5 @@ if (paymentStatus === "failed") {
 
 if (paymentId) {
   console.log("Create Payment with PaymentId: ", paymentId);
+  console.log("Create Payment with Payload: ", urlParams);
 }
