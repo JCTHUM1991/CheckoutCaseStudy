@@ -32,12 +32,11 @@
     onPaymentCompleted: (_component, paymentResponse) => {
       console.log("Create Payment with PaymentId: ", paymentResponse.id);
 	  console.log("Create Payment with paymentResponseStatus: ", paymentResponse.status);
-	  console.log("AA Create Payment with paymentResponse: ", paymentResponse);
-	  
+	  console.log("AA Create Payment with paymentResponse: ", paymentResponse);	  
 	  const paymentStatus = paymentResponse.status;
 	  const paymentId = paymentResponse.id;
 	  
-		if (paymentStatus === "Approved") {
+		if (paymentStatus === "Approved" || ) {
 		console.log("Create Payment with paymentStatus: IN SUCCESS");
 		triggerToast("successToast");
 		}
@@ -85,30 +84,29 @@ function triggerToast(id) {
     element.classList.remove("show");
   }, 5000);
 }
-/*
+
 const urlParams = new URLSearchParams(window.location.search);
-const paymentStatus = urlParams.get("status");
-const paymentId = urlParams.get("cko-payment-id");
+const paymentStatusURL = urlParams.get("status")?? "";;
+const paymentIdURL = urlParams.get("cko-payment-id")?? "";;
 
 console.log("Current URL: ", window.location.href);
 console.log("Query string: ", window.location.search);
 
 console.log("Create Payment with urlParams: ", urlParams);
-console.log("Create Payment with paymentStatus: ", paymentStatus);
-console.log("Create Payment with paymentId: ", paymentId);
+console.log("Create Payment with paymentStatus: ", paymentStatusURL);
+console.log("Create Payment with paymentId: ", paymentIdURL);
 
 
-if (paymentStatus === "Approved") {
+if (paymentStatusURL === "succeeded") {
 	console.log("Create Payment with paymentStatus: IN SUCCESS");
   triggerToast("successToast");
 }
 
-if (paymentStatus === "Declined") {
+if (paymentStatusURL === "failed") {
   triggerToast("failedToast");
 }
 
-if (paymentId) {
+if (paymentIdURL) {
   console.log("Create Payment with PaymentId1: ", paymentId);
   console.log("Create Payment with Payload1: ", urlParams);
 }
-*/
