@@ -24,61 +24,66 @@ console.log("Query string:", window.location.search);
 console.log("paymentStatus:", paymentStatus);
 console.log("paymentId:", paymentId);
 
-// ✅ Show success/failure toast if redirected back from payment result
+// ✅ Show toast (but do NOT skip form rendering)
 if (paymentStatus === "succeeded") {
-  console.log("Payment successful");
+  console.log("✅ Payment successful");
   triggerToast("successToast");
 } else if (paymentStatus === "failed") {
-  console.log("Payment failed");
+  console.log("❌ Payment failed");
   triggerToast("failedToast");
-} else {
-  // 🔄 No payment status → Render payment form
-  (async () => {
-    const PUBLIC_KEY = "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy";
-
-    const response = await fetch("https://checkoutcasestudy.onrender.com/create-payment-sessions", {
-      method: "POST",
-    });
-
-    const paymentSession = await response.json();
-
-    console.log("Fetched paymentSession:", paymentSession);
-
-    if (!response.ok) {
-      console.error("Error creating payment session", paymentSession);
-      return;
-    }
-
-    const checkout = await CheckoutWebComponents({
-      publicKey: PUBLIC_KEY,
-      environment: "sandbox",
-      locale: "en-GB",
-      paymentSession,
-      onReady: () => {
-        console.log("Checkout component ready");
-      },
-      onPaymentCompleted: (_component, paymentResponse) => {
-        console.log("New - Payment completed with ID:", paymentResponse.id);
-        console.log("New - Payment response:", paymentResponse);
-
-        // 🚀 Redirect to show success toast
-        window.location.href = `https://jcthum1991.github.io/CheckoutCaseStudy/?status=succeeded&cko-payment-id=${paymentResponse.id}`;
-      },
-      onChange: (component) => {
-        console.log(`onChange() -> isValid: "${component.isValid()}" for "${component.type}"`);
-      },
-      onError: (component, error) => {
-        console.error("❌ onError:", error, "Component:", component.type);
-
-        // Optional: Redirect to failure page
-        window.location.href = `https://jcthum1991.github.io/CheckoutCaseStudy/?status=failed`;
-      },
-    });
-
-    const flowComponent = checkout.create("flow");
-    flowComponent.mount(document.getElementById("flow-container"));
-  })();
 }
+
+// 🔄 Always render the payment form (even after success/failure)
+(async () => {
+  const PUBLIC_KEY = "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy";
+
+  const response = await fetch("https://checkoutcasestudy.onrender.com/create-payment-sessions", {
+    method: "POST",
+  });
+
+  const paymentSession = await response.json();
+
+  console.log("Fetched paymentSession:", paymentSession);
+
+  if (!response.ok) {
+    console.error("Error creating payment session", paymentSession);
+    return;
+  }
+
+  const checkout = await CheckoutWebComponents({
+    publicKey: PUBLIC_KEY,
+    environment: "sandbox",
+    locale: "en-GB",
+    paymentSession,
+    onReady: () => {
+      console.log("Checkout component ready");
+    },
+    onPaymentCompleted: (_component, paymentResponse) => {
+      console.log("New Payment completed with ID:", paymentResponse.id);
+      console.log("New1 Payment response:", paymentResponse);
+
+      // 🔁 Reload with success status (keeps form + shows toast)
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set("status", "succeeded");
+      currentUrl.searchParams.set("cko-payment-id", paymentResponse.id);
+      window.location.href = currentUrl.toString();
+    },
+    onChange: (component) => {
+      console.log(`onChange() -> isValid: "${component.isValid()}" for "${component.type}"`);
+    },
+    onError: (component, error) => {
+      console.error("❌ onError:", error, "Component:", component.type);
+
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set("status", "failed");
+      window.location.href = currentUrl.toString();
+    },
+  });
+
+  const flowComponent = checkout.create("flow");
+  flowComponent.mount(document.getElementById("flow-container"));
+})();
+
 
 
 /* global CheckoutWebComponents */

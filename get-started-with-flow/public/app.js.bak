@@ -58,8 +58,8 @@ if (paymentStatus === "succeeded") {
         console.log("Checkout component ready");
       },
       onPaymentCompleted: (_component, paymentResponse) => {
-        console.log("✅ Payment completed with ID:", paymentResponse.id);
-        console.log("✅ Payment response:", paymentResponse);
+        console.log("New - Payment completed with ID:", paymentResponse.id);
+        console.log("New - Payment response:", paymentResponse);
 
         // 🚀 Redirect to show success toast
         window.location.href = `https://jcthum1991.github.io/CheckoutCaseStudy/?status=succeeded&cko-payment-id=${paymentResponse.id}`;
