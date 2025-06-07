@@ -26,7 +26,7 @@ app.post("/create-payment-sessions", async (_req, res) => {
       },
       body: JSON.stringify({
         amount: 6540,
-        currency: "GBP",
+        currency: "EUR",
         reference: "ORD-123AB",
         description: "Payment for Iphone Casing",
         billing_descriptor: {
