@@ -1,14 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <script>
-      // Append query string to target URL
-      const query = window.location.search;
-      window.location.href = "get-started-with-flow/public/index.html" + query;
-    </script>
-    <title>Redirecting...</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Web Components: Flow Component</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      /* Optional: Add directly to your CSS file */
+      .checkout-top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 1.5rem;
+        border-bottom: 1px solid #eee;
+        background-color: #f9f9f9;
+        color: #666;
+      }
+
+      .shop-info h1 {
+        margin: 0;
+        font-size: 2rem;
+        color: #444;
+      }
+
+      .shop-info p {
+        margin: 0.25rem 0;
+        font-size: 1rem;
+      }
+
+      .payment-icons {
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .card-icon {
+        height: 24px;
+        object-fit: contain;
+      }
+
+      .order-details {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+      }
+
+      .basket ul {
+        padding-left: 1.2rem;
+      }
+
+      .toast {
+        display: none;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 4px;
+        color: #fff;
+      }
+
+      .toast.success {
+        background-color: #4CAF50;
+      }
+
+      .toast.failed {
+        background-color: #f44336;
+      }
+    </style>
   </head>
+
   <body>
-    Redirecting to home page...
+    <main class="checkout-wrapper">
+
+      <!-- 🛍️ Header with shop info and payment icons -->
+      <div class="checkout-top-bar">
+        <div class="shop-info">
+          <h1>My Shop</h1>
+          <p>Basket &gt; Shipping &gt; Review</p>
+          <div class="payment-icons">
+            <strong>Payments</strong>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
+              alt="Visa"
+              class="card-icon"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
+              alt="Mastercard"
+              class="card-icon"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg"
+              alt="Amex"
+              class="card-icon"
+            />
+          </div>
+        </div>
+        <div class="order-details">Order Details</div>
+      </div>
+
+      <!-- 🛒 Checkout Main Section -->
+      <header>
+        <h1>🛒 Checkout Page</h1>
+      </header>
+
+      <!-- Basket Summary -->
+      <section class="basket">
+        <h2>Basket Summary</h2>
+        <ul>
+          <li>🎸 <strong>Guitar</strong> – SGD 16.35 × 1 = SGD 16.35</li>
+          <li>🔊 <strong>Amp</strong> – SGD 16.35 × 3 = SGD 49.05</li>
+        </ul>
+        <p class="total"><strong>Total: SGD 65.40</strong></p>
+      </section>
+
+      <!-- Payment Form -->
+      <form class="payment-form">
+        <div class="flow-container-wrapper">
+          <div id="flow-container"></div>
+        </div>
+        <span id="error-message"></span>
+        <span id="successful-payment-message"></span>
+      </form>
+
+      <!-- Toasts -->
+      <div id="successToast" class="toast success">
+        <span>The payment was successful</span>
+      </div>
+      <div id="failedToast" class="toast failed">
+        <span>The payment failed, try again</span>
+      </div>
+    </main>
+
+    <script src="https://checkout-web-components.checkout.com/index.js"></script>
+    <script src="get-started-with-flow/public/app.js"></script>
   </body>
 </html>

@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Redirecting...</title>
     <script>
-      // Wait for the page to load
-      window.onload = function () {
-        const params = new URLSearchParams(window.location.search);
-        const status = params.get("status");
-
-        // Determine redirect path based on status
-        let redirectUrl = "get-started-with-flow/public/index.html";
-        if (status === "succeeded") {
-          redirectUrl = "get-started-with-flow/public/index.html?status=succeeded";
-        } else if (status === "failed") {
-          redirectUrl = "get-started-with-flow/public/index.html?status=failed";
-        }
-
-        window.location.href = redirectUrl;
-      };
+      // Append query string to target URL
+      const query = window.location.search;
+      window.location.href = "get-started-with-flow/public/index.html" + query;
     </script>
+    <title>Redirecting...</title>
   </head>
   <body>
     Redirecting to home page...
