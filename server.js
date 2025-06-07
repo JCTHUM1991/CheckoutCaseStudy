@@ -66,6 +66,17 @@ app.post("/create-payment-sessions", async (_req, res) => {
         risk: {
           enabled: true,
         },
+		enabled_payment_methods: [
+		"card",
+		"ideal",
+		"googlepay"],
+		"3ds": {
+			"enabled": true,
+			"attempt_n3d": false,
+			"challenge_indicator": "no_preference",
+			"exemption": "low_value",
+			"allow_upgrade": true
+			},
         success_url: "https://jcthum1991.github.io/CheckoutCaseStudy/?status=succeeded",
         failure_url: "https://jcthum1991.github.io/CheckoutCaseStudy/?status=failed",
         metadata: {},
@@ -86,6 +97,7 @@ app.post("/create-payment-sessions", async (_req, res) => {
   );
 
   const parsedPayload = await request.json();
+  console.log("request ",request);
   console.log("parsedPayload ",parsedPayload);
 
   res.status(request.status).send(parsedPayload);

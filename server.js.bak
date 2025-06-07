@@ -66,8 +66,19 @@ app.post("/create-payment-sessions", async (_req, res) => {
         risk: {
           enabled: true,
         },
-        success_url: "https://checkoutcasestudy.onrender.com/?status=succeeded",
-        failure_url: " https://checkoutcasestudy.onrender.com/?status=failed",
+		enabled_payment_methods: [
+		"card",
+		"ideal",
+		"googlepay"],
+		"3ds": {
+			"enabled": false,
+			"attempt_n3d": false,
+			"challenge_indicator": "no_preference",
+			"exemption": "low_value",
+			"allow_upgrade": true
+			},
+        success_url: "https://jcthum1991.github.io/CheckoutCaseStudy/?status=succeeded",
+        failure_url: "https://jcthum1991.github.io/CheckoutCaseStudy/?status=failed",
         metadata: {},
         items: [
           {
@@ -91,6 +102,13 @@ app.post("/create-payment-sessions", async (_req, res) => {
   res.status(request.status).send(parsedPayload);
 });
 
+/*
 app.listen(3000, () =>
   console.log("Node server listening on port 3000:  https://checkoutcasestudy.onrender.com")
 );
+*/
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Node server listening on port ${PORT}`);
+});
