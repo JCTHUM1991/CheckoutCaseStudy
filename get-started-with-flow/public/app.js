@@ -22,7 +22,7 @@
     },
     onPaymentCompleted: (_component, paymentResponse) => {
       console.log("Create Payment with PaymentId: ", paymentResponse.id);
-	  console.log("Create Payment with paymentResponse: ", paymentResponse.status);
+	  console.log("Create Payment with paymentResponseStatus: ", paymentResponse.status);
 	  console.log("Create Payment with paymentResponse: ", paymentResponse);
 	  
 	  const paymentStatus = paymentResponse.status;
