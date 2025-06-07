@@ -24,7 +24,7 @@
       },
     },
   },
-	translations,
+	//translations,
     onReady: () => {
       console.log("onReady");
     },
