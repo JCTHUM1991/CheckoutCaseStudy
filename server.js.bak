@@ -114,6 +114,8 @@ app.post("/getPaymentDetails", async (req, res) => {
 	
 	const { paymentId } = req.body;
 	
+	console.log("paymentId ",paymentId);
+	
 	if (!paymentId) {
 		return res.status(400).json({ error: "Missing paymentId in request body" });
 	}

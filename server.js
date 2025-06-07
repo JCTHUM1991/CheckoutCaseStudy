@@ -122,7 +122,7 @@ app.post("/getPaymentDetails", async (req, res) => {
 
 	try {
 		const request = await fetch(
-		"https://api.sandbox.checkout.com/payments/{paymentId}",
+		`https://api.sandbox.checkout.com/payments/${paymentId}`,
 		{
 		  method: "GET",
 		  headers: {
