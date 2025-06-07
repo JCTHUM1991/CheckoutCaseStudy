@@ -98,7 +98,7 @@ console.log("Create Payment with paymentId: ", paymentIdURL);
 
 
 if (paymentStatusURL === "succeeded") {
-	console.log("Create Payment with paymentStatus: IN SUCCESS");
+	console.log("Create Payment with IN paymentId: ", paymentIdURL);
 	(async () => {
 		const responseCheck = await fetch("https://checkoutcasestudy.onrender.com/getPaymentDetails", {
     method: "POST",
