@@ -6,6 +6,7 @@
   const response = await fetch("https://checkoutcasestudy.onrender.com/create-payment-sessions", { method: "POST" }); // Order
   const paymentSession = await response.json();
 
+ console.log("Create Payment with paymentSession: ", paymentSession);
   if (!response.ok) {
     console.error("Error creating payment session", paymentSession);
     return;
@@ -52,6 +53,8 @@ function triggerToast(id) {
 const urlParams = new URLSearchParams(window.location.search);
 const paymentStatus = urlParams.get("status");
 const paymentId = urlParams.get("cko-payment-id");
+
+console.log("Create Payment with urlParams: ", urlParams);
 
 if (paymentStatus === "succeeded") {
   triggerToast("successToast");
