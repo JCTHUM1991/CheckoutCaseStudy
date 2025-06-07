@@ -93,8 +93,8 @@ console.log("Current URL: ", window.location.href);
 console.log("Query string: ", window.location.search);
 
 console.log("Create Payment with urlParams: ", urlParams);
-console.log("Create Payment with paymentStatus: ", paymentStatus);
-console.log("Create Payment with paymentId: ", paymentId);
+console.log("Create Payment with paymentStatus: ", paymentStatusURL);
+console.log("Create Payment with paymentId: ", paymentIdURL);
 
 
 if (paymentStatusURL === "succeeded") {

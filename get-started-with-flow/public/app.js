@@ -36,7 +36,7 @@
 	  const paymentStatus = paymentResponse.status;
 	  const paymentId = paymentResponse.id;
 	  
-		if (paymentStatus === "Approved" || ) {
+		if (paymentStatus === "Approved" ) {
 		console.log("Create Payment with paymentStatus: IN SUCCESS");
 		triggerToast("successToast");
 		}
