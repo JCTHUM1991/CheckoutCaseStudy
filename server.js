@@ -28,7 +28,7 @@ app.post("/create-payment-sessions", async (_req, res) => {
         amount: 6540,
         currency: "GBP",
         reference: "ORD-123AB",
-        description: "Payment for Guitars and Amps",
+        description: "Payment for Iphone Casing",
         billing_descriptor: {
           name: "Jia Tsang",
           city: "London",
@@ -81,12 +81,12 @@ app.post("/create-payment-sessions", async (_req, res) => {
         metadata: {},
         items: [
           {
-            name: "Guitar",
+            name: "Iphone Casing",
             quantity: 1,
             unit_price: 1635,
           },
           {
-            name: "Amp",
+            name: "Iphone Casing 1",
             quantity: 3,
             unit_price: 1635,
           },
