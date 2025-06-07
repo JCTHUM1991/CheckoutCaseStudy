@@ -99,6 +99,20 @@ console.log("Create Payment with paymentId: ", paymentIdURL);
 
 if (paymentStatusURL === "succeeded") {
 	console.log("Create Payment with paymentStatus: IN SUCCESS");
+	(async () => {
+		const responseCheck = await fetch(`https://checkoutcasestudy.onrender.com/getPaymentDetails/`, { method: "POST" }, headers: {
+      "Content-Type": "application/json"
+		},
+		body: JSON.stringify({ paymentId: paymentIdURL }));
+		const getpaymentdetails = await response.json();
+
+		console.log("Create Payment with getpaymentdetails: ", getpaymentdetails);
+	 
+		if (!responseCheck.ok) {
+			console.error("Error get payment details", getpaymentdetails);
+			return;
+		}
+	})();
   triggerToast("successToast");
 }
 
@@ -107,6 +121,6 @@ if (paymentStatusURL === "failed") {
 }
 
 if (paymentIdURL) {
-  console.log("Create Payment with PaymentId1: ", paymentId);
+  console.log("Create Payment with PaymentId1: ", paymentIdURL);
   console.log("Create Payment with Payload1: ", urlParams);
 }

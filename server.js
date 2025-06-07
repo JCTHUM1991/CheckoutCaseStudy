@@ -109,6 +109,37 @@ app.post("/create-payment-sessions", async (_req, res) => {
   res.status(request.status).send(parsedPayload);
 });
 
+
+app.post("/getPaymentDetails", async (req, res) => {
+	
+	const { paymentId } = req.body;
+	
+	if (!paymentId) {
+		return res.status(400).json({ error: "Missing paymentId in request body" });
+	}
+
+	try {
+		const request = await fetch(
+		"https://api.sandbox.checkout.com/payments/{paymentId}",
+		{
+		  method: "GET",
+		  headers: {
+			Authorization: `Bearer ${SECRET_KEY}`,
+			"Content-Type": "application/json",
+		  },
+		}
+	  );
+	  const data = await request.json();
+	  console.log("data ",data);
+	  
+	  res.status(request.ok ? 200 : request.status).json(data);
+	  
+	} catch (error) {
+    console.error("Error fetching payment details:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 /*
 app.listen(3000, () =>
   console.log("Node server listening on port 3000:  https://checkoutcasestudy.onrender.com")
