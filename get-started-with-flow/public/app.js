@@ -22,7 +22,9 @@
     },
     onPaymentCompleted: (_component, paymentResponse) => {
       console.log("Create Payment with PaymentId: ", paymentResponse.id);
+	  console.log("Create Payment with paymentResponse: ", paymentResponse.status);
 	  console.log("Create Payment with paymentResponse: ", paymentResponse);
+	  
 	  const paymentStatus = paymentResponse.status;
     },
     onChange: (component) => {
@@ -54,14 +56,14 @@ function triggerToast(id) {
 const urlParams = new URLSearchParams(window.location.search);
 const paymentStatus = urlParams.get("status");
 const paymentId = urlParams.get("cko-payment-id");
-*/
+
 console.log("Current URL: ", window.location.href);
 console.log("Query string: ", window.location.search);
 
 console.log("Create Payment with urlParams: ", urlParams);
 console.log("Create Payment with paymentStatus: ", paymentStatus);
 console.log("Create Payment with paymentId: ", paymentId);
-
+*/
 
 if (paymentStatus === "Approved") {
 	console.log("Create Payment with paymentStatus: IN SUCCESS");
