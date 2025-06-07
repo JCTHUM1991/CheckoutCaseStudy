@@ -62,6 +62,7 @@ console.log("Create Payment with paymentId: ", paymentId);
 
 
 if (paymentStatus === "succeeded") {
+	console.log("Create Payment with paymentStatus: IN SUCCESS");
   triggerToast("successToast");
 }
 
