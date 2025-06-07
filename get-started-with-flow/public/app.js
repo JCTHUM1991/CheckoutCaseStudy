@@ -55,6 +55,9 @@ const paymentStatus = urlParams.get("status");
 const paymentId = urlParams.get("cko-payment-id");
 
 console.log("Create Payment with urlParams: ", urlParams);
+console.log("Create Payment with paymentStatus: ", paymentStatus);
+console.log("Create Payment with paymentId: ", paymentId);
+
 
 if (paymentStatus === "succeeded") {
   triggerToast("successToast");
