@@ -17,10 +17,11 @@
     environment: "sandbox",
     locale: "en-GB",
     paymentSession,
+	paymentMethods: ['card', 'ideal', 'googlepay'],
 	componentOptions: {
     card: {
       data: {
-        cardholderName: 'Jia Tsang',
+        cardholderName: 'AAA Jia Tsang',
       },
     },
   },
