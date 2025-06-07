@@ -63,16 +63,15 @@
   });
 
   const flowComponent = checkout.create("flow");
-  const idealComponent = checkout.create("ideal");
-
-
-  flowComponent.mount(document.getElementById("flow-container"));
-  const idealElement = document.getElementById('ideal-container');
-
-	if (await idealComponent.isAvailable()) {
-	  idealComponent.mount(idealElement);
-	}
   
+
+
+ flowComponent.mount(document.getElementById("flow-container"));
+  
+  const idealComponent = checkout.create("ideal");
+  if (await idealComponent.isAvailable()) {
+  idealComponent.mount('#ideal-container');
+}
 })();
 
 function triggerToast(id) {

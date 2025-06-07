@@ -66,11 +66,9 @@ app.post("/create-payment-sessions", async (_req, res) => {
         risk: {
           enabled: true,
         },
+		
+		enabled_payment_methods: ["card","ideal","googlepay"],
 		/*
-		enabled_payment_methods: [
-		"card",
-		"ideal",
-		"googlepay"],
 		"3ds": {
 			"enabled": true,
 			"attempt_n3d": false,

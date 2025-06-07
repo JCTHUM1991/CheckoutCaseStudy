@@ -68,10 +68,12 @@
 
  flowComponent.mount(document.getElementById("flow-container"));
   
+  /*
   const idealComponent = checkout.create("ideal");
   if (await idealComponent.isAvailable()) {
   idealComponent.mount('#ideal-container');
 }
+*/
 })();
 
 function triggerToast(id) {
