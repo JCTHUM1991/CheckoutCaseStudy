@@ -6,6 +6,7 @@
   const response = await fetch("https://checkoutcasestudy.onrender.com/create-payment-sessions", { method: "POST" }); // Order
   const paymentSession = await response.json();
 
+ console.log("Create Payment with paymentSession: ", paymentSession);
   if (!response.ok) {
     console.error("Error creating payment session", paymentSession);
     return;
