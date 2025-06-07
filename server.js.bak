@@ -26,8 +26,8 @@ app.post("/create-payment-sessions", async (_req, res) => {
       },
       body: JSON.stringify({
         amount: 6540,
-        currency: "SGD",
-        reference: "ORD-123A",
+        currency: "GBP",
+        reference: "ORD-123AB",
         description: "Payment for Guitars and Amps",
         billing_descriptor: {
           name: "Jia Tsang",
