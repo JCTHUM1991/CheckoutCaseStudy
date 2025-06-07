@@ -66,8 +66,8 @@ app.post("/create-payment-sessions", async (_req, res) => {
         risk: {
           enabled: true,
         },
-        success_url: "https://jcthum1991.github.io/CheckoutCaseStudy/?status=succeeded",
-        failure_url: "https://jcthum1991.github.io/CheckoutCaseStudy/?status=failed",
+        success_url: "https://checkoutcasestudy.onrender.com/?status=succeeded",
+        failure_url: " https://checkoutcasestudy.onrender.com/?status=failed",
         metadata: {},
         items: [
           {
