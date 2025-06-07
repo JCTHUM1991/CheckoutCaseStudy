@@ -107,7 +107,7 @@ if (paymentStatusURL === "succeeded") {
     },
     body: JSON.stringify({ paymentId: paymentIdURL })
   });
-		const getpaymentdetails = await response.json();
+		const getpaymentdetails = await responseCheck.json();
 
 		console.log("Create Payment with getpaymentdetails: ", getpaymentdetails);
 	 
@@ -116,7 +116,14 @@ if (paymentStatusURL === "succeeded") {
 			return;
 		}
 	})();
-  triggerToast("successToast");
+	if (getpaymentdetails.status === "approved") {
+		console.log("Payment approved.");
+		triggerToast("successToast");
+		
+  } else {
+    console.log("Payment declined.");
+    triggerToast("failedToast");
+  }
 }
 
 if (paymentStatusURL === "failed") {

@@ -132,6 +132,8 @@ app.post("/getPaymentDetails", async (req, res) => {
 		}
 	  );
 	  const data = await request.json();
+	  const TransStatus = data.approved;
+	  console.log("data ",data.approved);
 	  console.log("data ",data);
 	  
 	  //res.status(request.ok ? 200 : request.status).json(data);

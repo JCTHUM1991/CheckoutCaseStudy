@@ -132,12 +132,21 @@ app.post("/getPaymentDetails", async (req, res) => {
 		}
 	  );
 	  const data = await request.json();
+	  const TransStatus = data.approved;
 	  console.log("data ",data.approved);
 	  console.log("data ",data);
 	  
+	  if (TransStatus === true) {
+      // ✅ Return only "approved" message
+      return res.status(200).json({ status: "approved" });
+    } else {
+      // ❌ Return declined or general failure
+      return res.status(200).json({ status: "declined" });
+    }
+	  
 	  //res.status(request.ok ? 200 : request.status).json(data);
 	  
-	  res.status(request.status).send(data);
+	  //res.status(request.status).send(data);
 	  
 	} catch (error) {
     console.error("Error fetching payment details:", error);
