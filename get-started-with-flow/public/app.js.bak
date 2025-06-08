@@ -2,7 +2,7 @@
 let currentCheckoutInstance;
 
 //(async () => {
-async function initCheckout(locale = 'en-GB') {
+async function initCheckout(locale = 'en-GB'){
   // Insert your public key here
   const PUBLIC_KEY = "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy";
   
@@ -70,18 +70,18 @@ async function initCheckout(locale = 'en-GB') {
   });
 
   const flowComponent = checkout.create("flow");
-  
+  document.getElementById("flow-container").innerHTML = ""; // Reset container
 
 
  flowComponent.mount(document.getElementById("flow-container"));
-  
+   currentCheckoutInstance = checkout;
   /*
   const idealComponent = checkout.create("ideal");
   if (await idealComponent.isAvailable()) {
   idealComponent.mount('#ideal-container');
 }
 */
-})();
+})/*()*/;
 
 function triggerToast(id) {
   var element = document.getElementById(id);

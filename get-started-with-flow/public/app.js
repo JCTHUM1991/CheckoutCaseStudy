@@ -2,7 +2,7 @@
 let currentCheckoutInstance;
 
 //(async () => {
-async function initCheckout(locale = 'en-GB') {
+async function initCheckout(locale = 'en-GB'){
   // Insert your public key here
   const PUBLIC_KEY = "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy";
   
@@ -81,7 +81,7 @@ async function initCheckout(locale = 'en-GB') {
   idealComponent.mount('#ideal-container');
 }
 */
-})();
+}/*)()*/;
 
 function triggerToast(id) {
   var element = document.getElementById(id);
