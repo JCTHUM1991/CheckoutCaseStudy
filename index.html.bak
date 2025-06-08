@@ -84,6 +84,7 @@
         <div class="order-details">Order Details</div>
       </div>
 
+	  
       <!-- 🛒 Checkout Main Section -->
       <header>
         <h1>🛒 Checkout Page</h1>
@@ -98,6 +99,19 @@
         </ul>
         <p class="total"><strong>Total: € 65.40</strong></p>
       </section>
+	<!-- 🌐 Language Selector -->
+	<div style="text-align: center; margin: 1rem 0;">
+      <div class="language-selector">
+        <label for="language-selector">🌍 Language:</label>
+        <select id="language-selector" style="margin-left: 0.5rem;">
+          <option value="en-GB">English (UK)</option>
+          <option value="nl-NL">Dutch (Netherlands)</option>
+          <option value="zh-HK">Chinese (Hong Kong)</option>
+        </select>
+      </div>
+	</div>
+	  
+
 
       <!-- Payment Form -->
       <form class="payment-form">
