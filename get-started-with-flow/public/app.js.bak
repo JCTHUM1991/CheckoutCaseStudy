@@ -81,7 +81,7 @@ async function initCheckout(locale = 'en-GB'){
   idealComponent.mount('#ideal-container');
 }
 */
-})/*()*/;
+}/*)()*/;
 
 function triggerToast(id) {
   var element = document.getElementById(id);

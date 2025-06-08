@@ -25,13 +25,15 @@ async function initCheckout(locale = 'en-GB'){
 	locale: locale ,
     paymentSession,
 	paymentMethods: ['card', 'ideal', 'googlepay'],
-	componentOptions: {
+	/*componentOptions: {
+		
     card: {
       data: {
         cardholderName: 'AAA Jia Tsang',
       },
     },
-  },
+	
+  },*/
 	//translations,
     onReady: () => {
       console.log("onReady");
