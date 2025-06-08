@@ -11,6 +11,25 @@
     console.error("Error creating payment session", paymentSession);
     return;
   }
+  
+const translations = {
+  en: {
+    success: "The payment was successful",
+    fail: "The payment failed, try again",
+    checkout: "Checkout Page"
+  },
+  nl: {
+    success: "De betaling is geslaagd",
+    fail: "De betaling is mislukt, probeer het opnieuw",
+    checkout: "Afrekenpagina"
+  },
+  zh: {
+    success: "付款成功",
+    fail: "付款失敗，請再試一次",
+    checkout: "結帳頁面"
+  }
+};
+
 
   const checkout = await CheckoutWebComponents({
     publicKey: PUBLIC_KEY,
@@ -25,7 +44,7 @@
       },
     },
   },
-	//translations,
+	translations,
     onReady: () => {
       console.log("onReady");
     },
