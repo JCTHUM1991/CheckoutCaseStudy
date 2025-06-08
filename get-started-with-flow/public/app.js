@@ -14,7 +14,7 @@
     console.error("Error creating payment session", paymentSession);
     return;
   }
-  
+  console.log("detectedLocale ", detectedLocale);
   const checkout = await CheckoutWebComponents({
     publicKey: PUBLIC_KEY,
     environment: "sandbox",

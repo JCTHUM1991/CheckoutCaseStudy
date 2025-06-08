@@ -2,6 +2,9 @@
 (async () => {
   // Insert your public key here
   const PUBLIC_KEY = "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy";
+  
+  const detectedLocale = navigator.language.startsWith('nl') ? 'nl-NL' : 'en-GB';
+
 
   const response = await fetch("https://checkoutcasestudy.onrender.com/create-payment-sessions", { method: "POST" }); // Order
   const paymentSession = await response.json();
@@ -12,29 +15,11 @@
     return;
   }
   
-const translations = {
-  en: {
-    success: "The payment was successful",
-    fail: "The payment failed, try again",
-    checkout: "Checkout Page"
-  },
-  nl: {
-    success: "De betaling is geslaagd",
-    fail: "De betaling is mislukt, probeer het opnieuw",
-    checkout: "Afrekenpagina"
-  },
-  zh: {
-    success: "付款成功",
-    fail: "付款失敗，請再試一次",
-    checkout: "結帳頁面"
-  }
-};
-
-
   const checkout = await CheckoutWebComponents({
     publicKey: PUBLIC_KEY,
     environment: "sandbox",
-    locale: "en-GB",
+    //locale: "en-GB",
+	locale: detectedLocale,
     paymentSession,
 	paymentMethods: ['card', 'ideal', 'googlepay'],
 	componentOptions: {
@@ -44,7 +29,7 @@ const translations = {
       },
     },
   },
-	translations,
+	//translations,
     onReady: () => {
       console.log("onReady");
     },
