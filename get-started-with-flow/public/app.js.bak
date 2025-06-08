@@ -1,9 +1,12 @@
 /* global CheckoutWebComponents */
-(async () => {
+let currentCheckoutInstance;
+
+//(async () => {
+async function initCheckout(locale = 'en-GB') {
   // Insert your public key here
   const PUBLIC_KEY = "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy";
   
-  const detectedLocale = navigator.language.startsWith('nl') ? 'nl-NL' : 'en-GB';
+ 
 
 
   const response = await fetch("https://checkoutcasestudy.onrender.com/create-payment-sessions", { method: "POST" }); // Order
@@ -14,12 +17,12 @@
     console.error("Error creating payment session", paymentSession);
     return;
   }
-  
+  console.log("locale  ", locale );
   const checkout = await CheckoutWebComponents({
     publicKey: PUBLIC_KEY,
     environment: "sandbox",
     //locale: "en-GB",
-	locale: detectedLocale,
+	locale: locale ,
     paymentSession,
 	paymentMethods: ['card', 'ideal', 'googlepay'],
 	componentOptions: {
@@ -141,3 +144,21 @@ if (paymentIdURL) {
   console.log("Create Payment with PaymentId1: ", paymentIdURL);
   console.log("Create Payment with Payload1: ", urlParams);
 }
+
+// Detect and initialize based on browser language
+document.addEventListener("DOMContentLoaded", () => {
+  const browserLocale = navigator.language;
+  const defaultLocale = ['en-GB', 'nl-NL', 'zh-HK'].includes(browserLocale) ? browserLocale : 'en-GB';
+
+  const selector = document.getElementById("language-selector");
+  if (selector) {
+    selector.value = defaultLocale;
+
+    selector.addEventListener("change", () => {
+      const selectedLocale = selector.value;
+      initCheckout(selectedLocale);
+    });
+  }
+
+  initCheckout(defaultLocale); // Initial load
+});
