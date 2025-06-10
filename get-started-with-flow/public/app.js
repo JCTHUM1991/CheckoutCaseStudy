@@ -6,7 +6,7 @@ async function initCheckout(locale = 'en-GB'){
   // Insert your public key here
   //const PUBLIC_KEY = "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy";
 const PUBLIC_KEY = "pk_sbox_aenzyjem56qblo7ofpizpljfoml";
-const PROCESSING_CHANNEL = "pc_5tjuchtzimgujdnzgwnaf5lqwu";  
+//const PROCESSING_CHANNEL = "pc_5tjuchtzimgujdnzgwnaf5lqwu";  
  
 
 
@@ -22,7 +22,7 @@ const PROCESSING_CHANNEL = "pc_5tjuchtzimgujdnzgwnaf5lqwu";
   const checkout = await CheckoutWebComponents({
     publicKey: PUBLIC_KEY,
     environment: "sandbox",
-    processing_channel_id: PROCESSING_CHANNEL,
+   // processing_channel_id: PROCESSING_CHANNEL,
     //locale: "en-GB",
 	locale: locale ,
     paymentSession,
