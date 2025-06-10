@@ -4,7 +4,8 @@ let currentCheckoutInstance;
 //(async () => {
 async function initCheckout(locale = 'en-GB'){
   // Insert your public key here
-  const PUBLIC_KEY = "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy";
+  //const PUBLIC_KEY = "pk_sbox_kms5vhdb66lgxsgzlgv4dgy3ziy";
+const PUBLIC_KEY = "pk_sbox_aenzyjem56qblo7ofpizpljfoml";
   
  
 
