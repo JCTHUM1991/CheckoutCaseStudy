@@ -14,6 +14,7 @@ app.use(express.json());
 // Insert your secret key here
 //const SECRET_KEY = "sk_sbox_txpyg4zdo4pvb42jiag4dp4qcye";
 const SECRET_KEY = "sk_sbox_4cuw6anwffm43b54podal7jlbq#";
+const PROCESSING_CHANNEL = "pc_5tjuchtzimgujdnzgwnaf5lqwu";
 
 app.post("/create-payment-sessions", async (_req, res) => {
   // Create a PaymentSession
@@ -27,6 +28,7 @@ app.post("/create-payment-sessions", async (_req, res) => {
       },
       body: JSON.stringify({
         amount: 6540,
+	processing_channel_id: PROCESSING_CHANNEL,
         currency: "EUR",
         reference: "ORD-123AB",
         description: "Payment for Iphone Casing",
