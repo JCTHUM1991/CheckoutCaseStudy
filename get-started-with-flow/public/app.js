@@ -25,7 +25,7 @@ const PUBLIC_KEY = "pk_sbox_aenzyjem56qblo7ofpizpljfoml";
     //locale: "en-GB",
 	locale: locale ,
     paymentSession,
-	paymentMethods: ['card', 'ideal', 'googlepay'],
+	//paymentMethods: ['card', 'ideal', 'googlepay'],
 	/*componentOptions: {
 		
     card: {
